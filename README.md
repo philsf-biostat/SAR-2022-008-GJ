@@ -2,15 +2,12 @@
 
 Objective
 
-Statistical Analysis for PERSON (PLACE, yyyy)
+Statistical Analysis for techsavvy32 (fiverr.com, 2022)
 
 ## Analyses performed
 
 1. Descriptive analysis
 1. Inferential analysis
-1. Power analysis
-1. Missing data imputation
-1. Statistical models
 
 ## Documents
 
