@@ -83,12 +83,21 @@ source("scripts/input.R", encoding = 'UTF-8')
 
 ## Raw data
 
+```{r sample size}
+# source population size
+N <- data.raw %>% summarise(N_hat = sum(postwt)) %>% round
+# source population size (cleaned)
+N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% round
+```
+
 ## Analytical dataset
 
 All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
 
 After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 Table 1 shows the structure of the analytical dataset.
+Raw data was collected as a census of the eligible population (OPM, 2020).
+The total employee population at NASA was `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
 
 ```{r analytical data}
 analytical_mockup %>%
