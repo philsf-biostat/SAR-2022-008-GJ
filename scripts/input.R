@@ -13,8 +13,6 @@ data.raw <- read_csv("dataset/FEVS_2020_PRDF_NASA.csv") %>%
 data.raw <- data.raw %>%
   # select() %>%
   rename(id = random_id) %>%
-  # only use complete cases
-  drop_na() %>%
   mutate() %>%
   filter()
 
@@ -47,7 +45,9 @@ analytical <- data.raw %>%
     q1,
     q21,
     postwt,
-  )
+  ) %>%
+  # only use complete cases
+  drop_na()
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
