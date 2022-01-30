@@ -164,6 +164,11 @@ two-tailed.
 
 ## Study size and Power
 
+<!-- The G*Power software was used to determine the minimum sample size needed to achieve an 80% statistical power. -->
+<!-- Using a Chi-squared statistical test with an alpha value of 5% for the sample size estimate, and an effect size of .5 (medium), the minimum sample size needed was 721. -->
+<!-- From the completed surveys of 10,588, a random sampling method was selected to collect 721 completed and usable surveys from the 2020 OPM FEVS. -->
+<!-- The researcher used all surveys to meet the inclusion criteria mentioned above to further increase the statistical power (Cohen et al., 2003). -->
+
 N/A
 
 ## Statistical packages
