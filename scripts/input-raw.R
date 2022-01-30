@@ -11,7 +11,7 @@ data.raw <- fread("dataset/FEVS_2020_PRDF.csv") %>%
 # data cleaning -----------------------------------------------------------
 
 data.raw <- data.raw %>%
-  select(random_id, agency, q1, q21, q29, q58, dsex) %>%
+  select(random_id, agency, q1, q21, q29, q58, dsex, postwt) %>%
   mutate() %>%
   filter(agency == "NN")
 
