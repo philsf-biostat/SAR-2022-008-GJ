@@ -1,24 +1,18 @@
 # setup -------------------------------------------------------------------
 library(philsfmisc)
-# library(data.table)
 library(tidyverse)
-library(readxl)
-# library(haven)
-# library(foreign)
-# library(lubridate)
-# library(naniar)
 library(labelled)
 
 # data loading ------------------------------------------------------------
 set.seed(42)
-data.raw <- tibble(id=gl(2, 10), group = gl(2, 10), outcome = rnorm(20))
-# data.raw <- read_excel("dataset/file.xlsx") %>%
-#   janitor::clean_names()
+data.raw <- read_csv("dataset/FEVS_2020_PRDF_NASA.csv") %>%
+  janitor::clean_names()
 
 # data cleaning -----------------------------------------------------------
 
 data.raw <- data.raw %>%
   # select() %>%
+  rename(id = random_id) %>%
   mutate() %>%
   filter()
 
@@ -27,14 +21,18 @@ data.raw <- data.raw %>%
 data.raw <- data.raw %>%
   mutate(
     id = factor(id), # or as.character
+    dsex = factor(dsex, labels = c("Male", "Female")),
   )
 
 # labels ------------------------------------------------------------------
 
 data.raw <- data.raw %>%
   set_variable_labels(
-    group = "Study group",
-    outcome = "Study outcome",
+    dsex = "Sex",
+    q1 = "I am given a real opportunity to improve my skills in my organization.",
+    q21 = "Supervisors in my work unit support employee development.",
+    q29 = "Managers promote communication among different work units (for example, about projects, goals, needed resources).",
+    q58 = "How satisfied are you with the Telework program in your agency?",
   )
 
 # analytical dataset ------------------------------------------------------
@@ -43,9 +41,13 @@ analytical <- data.raw %>%
   # select analytic variables
   select(
     id,
-    group,
-    outcome,
-  )
+    dsex,
+    q1,
+    q21,
+    postwt,
+  ) %>%
+  # only use complete cases
+  drop_na()
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
