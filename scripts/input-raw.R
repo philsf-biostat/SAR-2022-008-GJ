@@ -6,6 +6,7 @@ library(naniar)
 
 # data loading ------------------------------------------------------------
 set.seed(42)
+# data gathered from https://www.opm.gov/fevs/public-data-file/
 data.raw <- fread("dataset/FEVS_2020_PRDF.csv") %>%
   janitor::clean_names()
 
