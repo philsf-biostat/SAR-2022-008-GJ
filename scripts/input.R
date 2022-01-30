@@ -19,6 +19,8 @@ data.raw <- read_csv("dataset/FEVS_2020_PRDF_NASA.csv") %>%
 data.raw <- data.raw %>%
   # select() %>%
   rename(id = random_id) %>%
+  # only use complete cases
+  drop_na() %>%
   mutate() %>%
   filter()
 
