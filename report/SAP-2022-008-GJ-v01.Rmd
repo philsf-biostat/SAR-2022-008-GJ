@@ -66,11 +66,19 @@ kable(history)
 
 # Context
 
+The Federal Employee Viewpoint Survey addressed leadership commitment, professional development, and telework satisfaction while accounting for gender.
+
 ## Objectives
+
+Test if there is an association between leadership commitment and employee professional development at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Hypotheses
 
+There is a statistically significant correlation between leadership commitment and telework satisfaction among NASA’s employees in a telework environment after accounting for gender (men and women).
+
 ## Study design
+
+Survey, with sampling weights accounting for sampling uncertainty.
 
 # Data
 
