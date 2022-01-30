@@ -1,12 +1,6 @@
 # setup -------------------------------------------------------------------
 library(philsfmisc)
-# library(data.table)
 library(tidyverse)
-# library(readxl)
-# library(haven)
-# library(foreign)
-# library(lubridate)
-# library(naniar)
 library(labelled)
 
 # data loading ------------------------------------------------------------

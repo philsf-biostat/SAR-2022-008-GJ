@@ -2,6 +2,7 @@
 library(philsfmisc)
 library(data.table)
 library(tidyverse)
+library(naniar)
 
 # data loading ------------------------------------------------------------
 set.seed(42)
@@ -12,8 +13,10 @@ data.raw <- fread("dataset/FEVS_2020_PRDF.csv") %>%
 
 data.raw <- data.raw %>%
   select(random_id, agency, q1, q21, q29, q58, dsex, postwt) %>%
-  mutate() %>%
-  filter(agency == "NN")
+  filter(agency == "NN") %>%
+  replace_with_na_all(condition = ~.x == "X") %>%
+  mutate(
+  )
 
 # save dataset ------------------------------------------------------------
 
