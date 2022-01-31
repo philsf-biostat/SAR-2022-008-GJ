@@ -1,6 +1,4 @@
 # setup -------------------------------------------------------------------
-# library(ggplot2)
-# library(survminer)
 
 ff.col <- "steelblue" # good for single groups scale fill/color brewer
 ff.pal <- "Paired"    # good for binary groups scale fill/color brewer
@@ -14,10 +12,10 @@ gg <- analytical %>%
 
 # plots -------------------------------------------------------------------
 
-gg.outcome <- gg +
-  geom_density(aes(outcome, fill = group), alpha = .8) +
-  xlab(attr(analytical$outcome, "label")) +
-  ylab("")
+# gg.outcome <- gg +
+#   geom_density(aes(outcome, fill = group), alpha = .8) +
+#   xlab(attr(analytical$outcome, "label")) +
+#   ylab("")
 
 # cool facet trick from https://stackoverflow.com/questions/3695497 by JWilliman
 # gg +

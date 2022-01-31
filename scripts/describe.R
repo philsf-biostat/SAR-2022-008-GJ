@@ -1,40 +1,34 @@
 # setup -------------------------------------------------------------------
 
-# library(Hmisc) # describe
-# library(skimr) # skim
-# library(tableone)
 # library(gmodels) # CrossTable
 library(gtsummary)
 library(gt)
-# library(effectsize)
-# library(finalfit) # missing_compare
+library(survey)
 
 # setup gtsummary theme
 theme_gtsummary_journal("jama")
 theme_gtsummary_compact()
 theme_gtsummary_mean_sd() # mean/sd
-# theme_gtsummary_language(language = "pt") # traduzir
+
+# survey design
+svy <- svydesign(
+  ids = ~1,
+  data = analytical,
+  weights = ~postwt)
 
 # exploratory -------------------------------------------------------------
 
 # overall description
 # analytical %>%
 #   skimr::skim()
-
-# minimum detectable effect size
-# interpret_d(0.5)
+# svytotal(~q21 + q1, design = svy)
+# svymean(~q21 + q1, design = svy)
 
 # tables ------------------------------------------------------------------
 
-tab_desc <- analytical %>%
-  # select
-  select(
-    -id,
+tab_desc <- svy %>%
+  tbl_svysummary(
+    include = -id,
   ) %>%
-  tbl_summary(
-    # by = group
-  ) %>%
-  # modify_caption(caption = "**Tabela 1** Características demográficas") %>%
-  # modify_header(label ~ "**Características dos pacientes**") %>%
   bold_labels() %>%
   modify_table_styling(columns = "label", align = "c")
