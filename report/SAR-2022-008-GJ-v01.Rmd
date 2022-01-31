@@ -1,7 +1,7 @@
 ---
-title: "[title]"
+title: "Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAR-2022-008-GJ-v01'
-author: '**From:** Felipe Figueiredo **To:** ___'
+author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**[title]**
+**Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis**
 
 **Document version**
 
@@ -52,27 +52,75 @@ kable(history)
 
 ---
 
-# Abbreviations
-
-# Context
-
-## Objectives
-
-## Data reception and cleaning
-
-# Methods
-
 ```{r results, include=FALSE}
 source("scripts/results.R", encoding = 'UTF-8')
 ```
+
+```{r sample size}
+# source population size
+N <- data.raw %>% summarise(N_hat = sum(postwt)) %>% round
+# source population size (cleaned)
+N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% round
+```
+
+# Abbreviations
+
+- CI: confidence interval
+- FEVS: Federal Employee Viewpoint Survey
+- OPM: U.S. Office of Personnel Management
+
+# Context
+
+The Federal Employee Viewpoint Survey (FEVS) addressed leadership commitment, professional development, and telework satisfaction while accounting for gender (OPM, 2020).
+This analysis addresses a subset of the FEVS survey reflecting NASA employees.
+
+## Objectives
+
+Test if there is an association between leadership commitment and telework employee satisfaction at NASA from the 2020 Federal Employee Viewpoint Survey.
+
+## Data reception and cleaning
+
+All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
+
+After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
+
+Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
+These survey weights allow for the estimation of the association under study in the source population.
+The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
+
+# Methods
 
 ## Variables
 
 ### Primary and secondary outcomes
 
+**Specification of outcome measures** (Zarin, 2011):
+
+1. (Domain) telework employee satisfaction
+2. (Specific measurement) N/A
+3. (Specific metric) N/A
+4. (Method of aggregation) N/A
+
+**Primary outcome**
+
+This analysis does not evaluate an outcome variable, but instead tests whether or not the distributions of answers from two questions are independent from one another.
+
 ### Covariates
 
+The association will be stratified by the sex of survey respondents.
+
 ## Statistical analyses
+
+The epidemiological profile of the study participants will be described.
+Demographic
+(sex, age and BMI)
+will be described as
+mean (SD)
+or as counts and proportions (%), as appropriate.
+
+All comparisons between groups will be performed as univariate analyses.
+Differences in distribution of categorical variables will be assessed with the
+chi-square test with the Rao correction for weighted survey data.
 
 This analysis was performed using statistical software `R` version `r getRversion()`.
 
@@ -104,7 +152,7 @@ tab_inf %>%
 
 # References
 
-- **SAP-2022-008-GJ-v01** -- Analytical Plan for [title]
+- **SAP-2022-008-GJ-v01** -- Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 
 # Appendix
