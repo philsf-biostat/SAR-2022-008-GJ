@@ -2,7 +2,7 @@
 title: "Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAP-2022-008-GJ-v01'
 author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
-date: "`r Sys.Date()`"
+date: "2022-01-30"
 output:
   html_document:
     fig_caption: yes
@@ -124,7 +124,7 @@ This analysis does not evaluate an outcome variable, but instead tests whether o
 
 ## Covariates
 
-The association will be stratified by sex.
+The association will be stratified by the sex of survey respondents.
 
 # Statistical methods
 
@@ -135,7 +135,7 @@ The association will be stratified by sex.
 The epidemiological profile of the study participants will be described.
 Demographic
 (sex, age and BMI)
-and clinical variables
+<!-- and clinical variables -->
 <!-- ( [vars] ) -->
 will be described as
 mean (SD)
@@ -146,18 +146,20 @@ The distributions of participants' characteristics will be summarized in tables 
 ### Inferential analyses
 
 All comparisons between groups will be performed as univariate analyses.
-Continuous variables will be compared between groups with the
-independent t test with Welch correction.
+<!-- Continuous variables will be compared between groups with the -->
+<!-- independent t test with Welch correction. -->
 <!-- paired t test with Welch correction. -->
 <!-- Wilcoxon test. -->
 Differences in distribution of categorical variables will be assessed with the
-Fisher exact test.
-<!-- chi-square test. -->
+<!-- Fisher exact test. -->
+chi-square test with the Rao correction for weighted survey data.
 <!-- McNemar test. -->
 
 <!-- All inferential analyses will be performed in the statistical models (described in the next section). -->
 
 ### Statistical modeling
+
+N/A
 
 ### Missing data
 
@@ -186,6 +188,8 @@ N/A
 This analysis will be performed using statistical software `R` version `r getRversion()`.
 
 # Observations and limitations
+
+N/A
 
 # References
 
