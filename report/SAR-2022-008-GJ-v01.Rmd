@@ -148,7 +148,7 @@ tab_desc %>%
   )
 ```
 
-## Association between leadership commitment and telework satisfaction
+## Association between leadership commitment and professional development
 
 ### Overall association
 
