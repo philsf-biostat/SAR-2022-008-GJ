@@ -46,8 +46,8 @@ analytical <- data.raw %>%
   select(
     id,
     dsex,
-    q21, # IV
-    q1,  # DV
+    dv = q1,  # DV
+    iv = q21, # IV
     postwt,
   ) %>%
   # only use complete cases

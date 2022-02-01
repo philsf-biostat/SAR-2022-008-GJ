@@ -34,11 +34,11 @@ prop_male <- svymean(~dsex, svy) %>% as.matrix()
 prop_male <- prop_male[1]
 
 # prop outcome
-prop_dv_agree <- svymean(~q1, svy) %>% as.table()
+prop_dv_agree <- svymean(~dv, svy) %>% as.table()
 prop_dv_agree <- sum(prop_dv_agree[4:5])
 
 # prop IV
-prop_iv_agree <- svymean(~q21, svy) %>% as.table()
+prop_iv_agree <- svymean(~iv, svy) %>% as.table()
 prop_iv_agree <- sum(prop_iv_agree[4:5])
 
 # tables ------------------------------------------------------------------
