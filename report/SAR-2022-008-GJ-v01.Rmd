@@ -121,7 +121,7 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Study population and follow up
 
-The sample evaluated in this study is comprised of `r ncol(analytical)` observations representing `r N_hat` NASA employees, out of a total of `r N`.
+The sample evaluated in this study is comprised of `r nrow(analytical)` observations representing `r N_hat` NASA employees, out of a total of `r N`.
 Two thirds of the study population are males (`r format.pct(prop_male)`, Table 1).
 
 <!-- The first survey question -->
@@ -142,7 +142,9 @@ tab_desc %>%
   )
 ```
 
-## Inferential analysis
+## Association between leadership commitment and telework satisfaction
+
+### Overall association
 
 ```{r tab_inf}
 tab_inf %>%
@@ -151,6 +153,8 @@ tab_inf %>%
     caption = "**Table 2** caption"
   )
 ```
+
+### Stratification by sex
 
 # Observations and Limitations
 
