@@ -22,6 +22,10 @@ data.raw <- data.raw %>%
   mutate(
     id = factor(id), # or as.character
     dsex = factor(dsex, labels = c("Male", "Female")),
+    q29 = factor(q29), # IV/RQ1
+    q58 = factor(q58), # DV/RQ1
+    q21 = factor(q21), # IV/RQ2
+    q1 = factor(q1),   # DV/RQ2
   )
 
 # labels ------------------------------------------------------------------
@@ -42,8 +46,8 @@ analytical <- data.raw %>%
   select(
     id,
     dsex,
-    q1,
-    q21,
+    q21, # IV
+    q1,  # DV
     postwt,
   ) %>%
   # only use complete cases
