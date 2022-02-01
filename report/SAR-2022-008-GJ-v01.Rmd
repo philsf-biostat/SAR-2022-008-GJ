@@ -162,6 +162,18 @@ tab_inf %>%
 
 ### Stratification by sex
 
+- males: `r dv_m_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+- females: `r dv_f_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+
+The overall association appears to be counfounded by sex.
+
+#### Additional analyses
+
+- sex and iv: `r iv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+- sex and dv: `r dv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+
+Sex is not associated with either leadership commitment or employee satisfaction.
+
 # Observations and Limitations
 
 # Conclusions
