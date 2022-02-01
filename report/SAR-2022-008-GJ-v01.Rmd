@@ -54,6 +54,8 @@ kable(history)
 
 ```{r results, include=FALSE}
 source("scripts/results.R", encoding = 'UTF-8')
+dv <- "(q1 -- I am given a real opportunity to improve my skills in my organization)"
+iv <- "(q21 -- Supervisors in my work unit support employee development)"
 ```
 
 # Abbreviations
