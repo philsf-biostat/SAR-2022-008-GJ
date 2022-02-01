@@ -9,4 +9,5 @@ tab_inf <- svy %>%
   ) %>%
   add_overall() %>%
   add_p(
+    test = everything() ~ "svy.adj.chisq.test",
   )
