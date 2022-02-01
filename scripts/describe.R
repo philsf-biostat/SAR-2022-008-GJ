@@ -24,6 +24,23 @@ svy <- svydesign(
 # svytotal(~q21 + q1, design = svy)
 # svymean(~q21 + q1, design = svy)
 
+# source population size
+N <- data.raw %>% summarise(N_hat = sum(postwt)) %>% pull(N_hat) %>% round
+# source population size (cleaned)
+N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% pull(N_hat) %>% round
+
+# prop sex (male)
+prop_male <- svymean(~dsex, svy) %>% as.matrix()
+prop_male <- prop_male[1]
+
+# prop outcome
+prop_dv_agree <- svymean(~dv, svy) %>% as.table()
+prop_dv_agree <- sum(prop_dv_agree[4:5])
+
+# prop IV
+prop_iv_agree <- svymean(~iv, svy) %>% as.table()
+prop_iv_agree <- sum(prop_iv_agree[4:5])
+
 # tables ------------------------------------------------------------------
 
 tab_desc <- svy %>%

@@ -56,13 +56,6 @@ kable(history)
 source("scripts/results.R", encoding = 'UTF-8')
 ```
 
-```{r sample size}
-# source population size
-N <- data.raw %>% summarise(N_hat = sum(postwt)) %>% round
-# source population size (cleaned)
-N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% round
-```
-
 # Abbreviations
 
 - CI: confidence interval
@@ -128,11 +121,24 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Study population and follow up
 
+The sample evaluated in this study is comprised of `r ncol(analytical)` observations representing `r N_hat` NASA employees, out of a total of `r N`.
+Two thirds of the study population are males (`r format.pct(prop_male)`, Table 1).
+
+<!-- The first survey question -->
+Both survey questions
+addressed in this study showed most NASA employees demonstrated high levels of satisfaction when the survey was conducted.
+The proportion of employees that agree or strongly agree with the main outcome of this study
+(q1 -- I am given a real opportunity to improve my skills in my organization)
+was `r format.pct(prop_dv_agree)`.
+The proportion of employees that agree or strongly agree with leadership commitment
+(q21 -- Supervisors in my work unit support employee development)
+was `r format.pct(prop_iv_agree)`.
+
 ```{r tab_desc}
 tab_desc %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 1** caption"
+    caption = "**Table 1** Characteristics of the study population. Each of the survey questions had 5 alternatives for answer: 1: strongly disagree, 2: disagree, 3: neither agree nor disagree, 4: agree, 5: strongly agree."
   )
 ```
 

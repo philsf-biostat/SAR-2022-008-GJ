@@ -22,6 +22,10 @@ data.raw <- data.raw %>%
   mutate(
     id = factor(id), # or as.character
     dsex = factor(dsex, labels = c("Male", "Female")),
+    q29 = factor(q29), # IV/RQ1
+    q58 = factor(q58), # DV/RQ1
+    q21 = factor(q21), # IV/RQ2
+    q1 = factor(q1),   # DV/RQ2
   )
 
 # labels ------------------------------------------------------------------
@@ -31,7 +35,7 @@ data.raw <- data.raw %>%
     dsex = "Sex",
     q1 = "I am given a real opportunity to improve my skills in my organization.",
     q21 = "Supervisors in my work unit support employee development.",
-    q29 = "Managers promote communication among different work units (for example, about projects, goals, needed resources).",
+    q29 = "Managers promote communication among different work units",
     q58 = "How satisfied are you with the Telework program in your agency?",
   )
 
@@ -42,8 +46,8 @@ analytical <- data.raw %>%
   select(
     id,
     dsex,
-    q1,
-    q21,
+    dv = q1,  # DV
+    iv = q21, # IV
     postwt,
   ) %>%
   # only use complete cases
