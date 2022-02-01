@@ -35,7 +35,7 @@ data.raw <- data.raw %>%
     dsex = "Sex",
     q1 = "I am given a real opportunity to improve my skills in my organization.",
     q21 = "Supervisors in my work unit support employee development.",
-    q29 = "Managers promote communication among different work units (for example, about projects, goals, needed resources).",
+    q29 = "Managers promote communication among different work units",
     q58 = "How satisfied are you with the Telework program in your agency?",
   )
 
