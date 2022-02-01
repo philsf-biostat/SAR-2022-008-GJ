@@ -23,3 +23,6 @@ dv_m_p <- dv_m %>% pull(p.value)
 
 dv_f <- svychisq(~iv + dv, svy_f, statistic = "Chisq") %>% tidy
 dv_f_p <- dv_f %>% pull(p.value)
+
+cmh <- svytable(~iv + dv + dsex, svy) %>% mantelhaen.test() %>% tidy
+cmh_p <- cmh %>% pull(p.value)

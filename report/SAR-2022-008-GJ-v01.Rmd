@@ -165,7 +165,11 @@ tab_inf %>%
 - males: `r dv_m_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
 - females: `r dv_f_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
 
-The overall association appears to be counfounded by sex.
+The overall association appears to have an interaction with sex.
+
+- CMH: `r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+
+CMH test confirms an interaction is detectable.
 
 #### Additional analyses
 
