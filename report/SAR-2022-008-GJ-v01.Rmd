@@ -54,6 +54,8 @@ kable(history)
 
 ```{r results, include=FALSE}
 source("scripts/results.R", encoding = 'UTF-8')
+dv <- "(q1 -- I am given a real opportunity to improve my skills in my organization)"
+iv <- "(q21 -- Supervisors in my work unit support employee development)"
 ```
 
 # Abbreviations
@@ -69,30 +71,33 @@ This analysis addresses a subset of the FEVS survey reflecting NASA employees.
 
 ## Objectives
 
-Test if there is an association between leadership commitment and telework employee satisfaction at NASA from the 2020 Federal Employee Viewpoint Survey.
+Test if there is an association between leadership commitment and
+telework employee satisfaction
+at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Data reception and cleaning
-
-All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
-
-After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 
 Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
 These survey weights allow for the estimation of the association under study in the source population.
 The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
+Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).
+Some questions offered the option to choose "X" (Don't know) as the answer.
+These unknown answers were considered non-answers and treated as missing values.
+
+All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
+This analysis will focus on two questions from the FEVS survey, where the main interest is employee satisfaction
+`r dv`
+as the dependent variable and leadership commitment
+`r iv`
+as the independent variable.
+As per the data cleaning process, the dependent variable was renamed to `dv` and the independent variable was renamed to `iv` in the analytical dataset.
+After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 
 # Methods
 
 ## Variables
 
 ### Primary and secondary outcomes
-
-**Specification of outcome measures** (Zarin, 2011):
-
-1. (Domain) telework employee satisfaction
-2. (Specific measurement) N/A
-3. (Specific metric) N/A
-4. (Method of aggregation) N/A
 
 **Primary outcome**
 
@@ -109,29 +114,30 @@ Demographic
 (sex, age and BMI)
 will be described as
 mean (SD)
+<!-- median (IQR) -->
 or as counts and proportions (%), as appropriate.
-
 All comparisons between groups will be performed as univariate analyses.
 Differences in distribution of categorical variables will be assessed with the
-chi-square test with the Rao correction for weighted survey data.
-
+chi-square test with the adjustment of design effect for weighted survey data.
+All evaluations will be performed as complete case analyses.
+All analyses will be performed using the significance level of 5%.
 This analysis was performed using statistical software `R` version `r getRversion()`.
 
 # Results
 
 ## Study population and follow up
 
-The sample evaluated in this study is comprised of `r ncol(analytical)` observations representing `r N_hat` NASA employees, out of a total of `r N`.
+The sample evaluated in this study is comprised of `r nrow(analytical)` observations representing `r N_hat` NASA employees, out of a total of `r N`.
 Two thirds of the study population are males (`r format.pct(prop_male)`, Table 1).
 
 <!-- The first survey question -->
 Both survey questions
 addressed in this study showed most NASA employees demonstrated high levels of satisfaction when the survey was conducted.
 The proportion of employees that agree or strongly agree with the main outcome of this study
-(q1 -- I am given a real opportunity to improve my skills in my organization)
+`r dv`
 was `r format.pct(prop_dv_agree)`.
 The proportion of employees that agree or strongly agree with leadership commitment
-(q21 -- Supervisors in my work unit support employee development)
+`r iv`
 was `r format.pct(prop_iv_agree)`.
 
 ```{r tab_desc}
@@ -142,7 +148,9 @@ tab_desc %>%
   )
 ```
 
-## Inferential analysis
+## Association between leadership commitment and telework satisfaction
+
+### Overall association
 
 ```{r tab_inf}
 tab_inf %>%
@@ -151,6 +159,8 @@ tab_inf %>%
     caption = "**Table 2** caption"
   )
 ```
+
+### Stratification by sex
 
 # Observations and Limitations
 
