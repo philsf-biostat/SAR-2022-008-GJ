@@ -35,7 +35,7 @@ data.raw <- data.raw %>%
     dsex = "Sex",
     q1 = "I am given a real opportunity to improve my skills in my organization.",
     q21 = "Supervisors in my work unit support employee development.",
-    q29 = "Managers promote communication among different work units",
+    q29 = "Managers promote communication among different work units.",
     q58 = "How satisfied are you with the Telework program in your agency?",
   )
 
@@ -43,11 +43,19 @@ data.raw <- data.raw %>%
 
 analytical <- data.raw %>%
   # select analytic variables
+  mutate(
+    dv = q1,  # DV
+    iv = q21, # IV
+    dv2 = fct_collapse(dv, No_Agree=as.character(1:3), Agree=as.character(4:5)),
+    iv2 = fct_collapse(iv, No_Agree=as.character(1:3), Agree=as.character(4:5)),
+  ) %>%
   select(
     id,
     dsex,
-    dv = q1,  # DV
-    iv = q21, # IV
+    dv,
+    iv,
+    dv2,
+    iv2,
     postwt,
   ) %>%
   # only use complete cases

@@ -63,6 +63,7 @@ iv <- "(q21 -- Supervisors in my work unit support employee development)"
 - CI: confidence interval
 - FEVS: Federal Employee Viewpoint Survey
 - OPM: U.S. Office of Personnel Management
+- OR: odds ratio
 
 # Context
 
@@ -71,14 +72,16 @@ This analysis addresses a subset of the FEVS survey reflecting NASA employees.
 
 ## Objectives
 
-Test if there is an association between leadership commitment and
-telework employee satisfaction
+Quantify the association between leadership commitment and
+employee professional development
 at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Data reception and cleaning
 
 Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
-These survey weights allow for the estimation of the association under study in the source population.
+These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
+The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
+
 The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
 Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).
 Some questions offered the option to choose "X" (Don't know) as the answer.
@@ -91,6 +94,7 @@ as the dependent variable and leadership commitment
 `r iv`
 as the independent variable.
 As per the data cleaning process, the dependent variable was renamed to `dv` and the independent variable was renamed to `iv` in the analytical dataset.
+Additionally, to calculate the OR the responses were categorized as binary responses, where agreement was aggregated from the "agree" and "strongly agree" responses, in variables `dv2` and `iv2`.
 After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 
 # Methods
@@ -101,7 +105,9 @@ After the cleaning process `r ncol(analytical)` variables were included in the a
 
 **Primary outcome**
 
-This analysis does not evaluate an outcome variable, but instead tests whether or not the distributions of answers from two questions are independent from one another.
+Odds of participants
+that perceive opportunities of employee professional development
+at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ### Covariates
 
@@ -119,6 +125,10 @@ or as counts and proportions (%), as appropriate.
 All comparisons between groups will be performed as univariate analyses.
 Differences in distribution of categorical variables will be assessed with the
 chi-square test with the adjustment of design effect for weighted survey data.
+The OR will be used as a measure of effect of the independent variable on the dependent variable.
+The stratification by sex will be used to assess if the effect changes across male and female strata.
+As a rule of thumb, a minimum change of 20% in the OR will be considered before concluding that there is an interaction between sex and the independent variable.
+The homogeneity of the OR across strata will be assessed with the Cochran-Mantel-Haenszel test.
 All evaluations will be performed as complete case analyses.
 All analyses will be performed using the significance level of 5%.
 This analysis was performed using statistical software `R` version `r getRversion()`.
@@ -162,14 +172,32 @@ tab_inf %>%
 
 ### Stratification by sex
 
-- males: `r dv_m_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
-- females: `r dv_f_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+```{r tab_inf_22}
+tab_inf_22 %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table 3** caption"
+  )
+```
 
 The overall association appears to have an interaction with sex.
 
 - CMH: `r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
 
 CMH test confirms an interaction is detectable.
+
+- OR overall: `r or_format(or_o)`
+- OR males: `r or_format(or_m)`
+- OR females: `r or_format(or_f)`
+
+Interpretation:
+
+1. Leadership commitment is associated with an increase of `r format.pct(or_o[1] -1, 0)` in professional development.
+2. There **is** effect modification by sex in the association
+    - males appear to perceive more professional development than females when leadership shows high commitment.
+    - effect of association between commit and development is **huge** (OR ~ 27!!), and relative difference between effects is not as large (may not be a true interaction)
+
+Obs: high precision due to large study power.
 
 #### Additional analyses
 
@@ -184,7 +212,7 @@ Sex is not associated with either leadership commitment or employee satisfaction
 
 # References
 
-- **SAP-2022-008-GJ-v01** -- Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis
+- **SAP-2022-008-GJ-v02** -- Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 
 # Appendix
