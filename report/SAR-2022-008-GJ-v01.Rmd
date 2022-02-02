@@ -172,14 +172,32 @@ tab_inf %>%
 
 ### Stratification by sex
 
-- males: `r dv_m_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
-- females: `r dv_f_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+```{r tab_inf_22}
+tab_inf_22 %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table 3** caption"
+  )
+```
 
 The overall association appears to have an interaction with sex.
 
 - CMH: `r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
 
 CMH test confirms an interaction is detectable.
+
+- OR overall: `r or_format(or_o)`
+- OR males: `r or_format(or_m)`
+- OR females: `r or_format(or_f)`
+
+Interpretation:
+
+1. Leadership commitment is associated with an increase of `r format.pct(or_o[1] -1, 0)` in professional development.
+2. There **is** effect modification by sex in the association
+    - males appear to perceive more professional development than females when leadership shows high commitment.
+    - effect of association between commit and development is **huge** (OR ~ 27!!), and relative difference between effects is not as large (may not be a true interaction)
+
+Obs: high precision due to large study power.
 
 #### Additional analyses
 
