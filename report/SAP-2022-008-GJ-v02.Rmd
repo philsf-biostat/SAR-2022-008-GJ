@@ -42,8 +42,8 @@ panderOptions('table.split.table', 160)
 **Document version**
 
 ```{r history}
-Version <- c("01")
-Changes <- c("Initial version")
+Version <- c("01", "02")
+Changes <- c("Initial version", "Measure of effect added to the analysis, methods for inferential analyses were updated.")
 history <- cbind(Version, Changes)
 colnames(history) <- c("Version", "Alterations")
 # pander(history, split.cells = 70)
@@ -57,6 +57,7 @@ kable(history)
 - CI: confidence interval
 - FEVS: Federal Employee Viewpoint Survey
 - OPM: U.S. Office of Personnel Management
+- OR: odds ratio
 
 # Context
 
@@ -65,13 +66,13 @@ This analysis addresses a subset of the FEVS survey reflecting NASA employees.
 
 ## Objectives
 
-Test if there is an association between leadership commitment and
+Quantify the association between leadership commitment and
 employee professional development
 at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Hypotheses
 
-There is a statistically significant correlation between leadership commitment and telework satisfaction among NASA’s employees in a telework environment after accounting for gender (men and women).
+There is a statistically significant correlation between leadership commitment, and professional development among NASAs employees in a telework environment after accounting for gender (men and women).
 
 ## Study design
 
@@ -81,6 +82,8 @@ Survey, with sampling weights accounting for sampling uncertainty.
 
 ```{r cleaning, include=FALSE}
 source("scripts/input.R", encoding = 'UTF-8')
+dv <- "(q1 -- I am given a real opportunity to improve my skills in my organization)"
+iv <- "(q21 -- Supervisors in my work unit support employee development)"
 ```
 
 ## Raw data
@@ -93,7 +96,9 @@ N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% round
 ```
 
 Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
-These survey weights allow for the estimation of the association under study in the source population.
+These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
+The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
+
 The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
 Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).
 Some questions offered the option to choose "X" (Don't know) as the answer.
@@ -104,11 +109,12 @@ These unknown answers were considered non-answers and treated as missing values 
 All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
 
 This analysis will focus on two questions from the FEVS survey, where the main interest is employee satisfaction
-(q1 -- I am given a real opportunity to improve my skills in my organization)
+`r dv`
 as the dependent variable and leadership commitment
-(q21 -- Supervisors in my work unit support employee development)
+`r iv`
 as the independent variable.
 As per the data cleaning process, the dependent variable was renamed to `dv` and the independent variable was renamed to `iv` in the analytical dataset.
+Additionally, to calculate the OR the responses were categorized as binary responses, where agreement was aggregated from the "agree" and "strongly agree" responses, in variables `dv2` and `iv2`.
 
 After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 Table 1 shows the structure of the analytical dataset.
@@ -126,14 +132,16 @@ The analytical dataset will be included in the private version of the report, an
 
 **Specification of outcome measures** (Zarin, 2011):
 
-1. (Domain) employee professional development
-2. (Specific measurement) N/A
-3. (Specific metric) N/A
-4. (Method of aggregation) N/A
+1. (Domain) Employee professional development
+2. (Specific measurement) Survey question
+3. (Specific metric) End value
+4. (Method of aggregation) Odds of participants that agree or strongly agree with survey question
 
 **Primary outcome**
 
-This analysis does not evaluate an outcome variable, but instead tests whether or not the distributions of answers from two questions are independent from one another.
+Odds of participants'
+that perceive opportunities of employee professional development
+at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Covariates
 
@@ -159,6 +167,11 @@ The distributions of participants' characteristics will be summarized in tables 
 All comparisons between groups will be performed as univariate analyses.
 Differences in distribution of categorical variables will be assessed with the
 chi-square test with the adjustment of design effect for weighted survey data.
+The OR will be used as a measure of effect of the independent variable on the dependent variable.
+
+The stratification by sex will be used to assess if the effect changes across male and female strata.
+As a rule of thumb, a minimum change of 20% in the OR will be considered before concluding that there is an interaction between sex and the independent variable.
+The homogeneity of the OR across strata will be assessed with the Cochran-Mantel-Haenszel test.
 
 ### Statistical modeling
 

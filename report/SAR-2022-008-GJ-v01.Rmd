@@ -63,6 +63,7 @@ iv <- "(q21 -- Supervisors in my work unit support employee development)"
 - CI: confidence interval
 - FEVS: Federal Employee Viewpoint Survey
 - OPM: U.S. Office of Personnel Management
+- OR: odds ratio
 
 # Context
 
@@ -71,14 +72,16 @@ This analysis addresses a subset of the FEVS survey reflecting NASA employees.
 
 ## Objectives
 
-Test if there is an association between leadership commitment and
-telework employee satisfaction
+Quantify the association between leadership commitment and
+employee professional development
 at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Data reception and cleaning
 
 Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
-These survey weights allow for the estimation of the association under study in the source population.
+These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
+The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
+
 The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
 Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).
 Some questions offered the option to choose "X" (Don't know) as the answer.
@@ -91,6 +94,7 @@ as the dependent variable and leadership commitment
 `r iv`
 as the independent variable.
 As per the data cleaning process, the dependent variable was renamed to `dv` and the independent variable was renamed to `iv` in the analytical dataset.
+Additionally, to calculate the OR the responses were categorized as binary responses, where agreement was aggregated from the "agree" and "strongly agree" responses, in variables `dv2` and `iv2`.
 After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 
 # Methods
@@ -101,7 +105,9 @@ After the cleaning process `r ncol(analytical)` variables were included in the a
 
 **Primary outcome**
 
-This analysis does not evaluate an outcome variable, but instead tests whether or not the distributions of answers from two questions are independent from one another.
+Odds of participants
+that perceive opportunities of employee professional development
+at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ### Covariates
 
@@ -119,6 +125,10 @@ or as counts and proportions (%), as appropriate.
 All comparisons between groups will be performed as univariate analyses.
 Differences in distribution of categorical variables will be assessed with the
 chi-square test with the adjustment of design effect for weighted survey data.
+The OR will be used as a measure of effect of the independent variable on the dependent variable.
+The stratification by sex will be used to assess if the effect changes across male and female strata.
+As a rule of thumb, a minimum change of 20% in the OR will be considered before concluding that there is an interaction between sex and the independent variable.
+The homogeneity of the OR across strata will be assessed with the Cochran-Mantel-Haenszel test.
 All evaluations will be performed as complete case analyses.
 All analyses will be performed using the significance level of 5%.
 This analysis was performed using statistical software `R` version `r getRversion()`.

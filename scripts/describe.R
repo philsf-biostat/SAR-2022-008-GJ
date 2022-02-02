@@ -45,7 +45,7 @@ prop_iv_agree <- sum(prop_iv_agree[4:5])
 
 tab_desc <- svy %>%
   tbl_svysummary(
-    include = -id,
+    include = c(dsex, dv, iv),
   ) %>%
   bold_labels() %>%
   modify_table_styling(columns = "label", align = "c")
