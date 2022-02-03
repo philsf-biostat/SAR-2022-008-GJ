@@ -244,7 +244,30 @@ This means that sex is not confounding the overall association of this analysis.
 
 # Observations and Limitations
 
+After accounting for the complex design of the survey that acquired the raw data used in this report, the analysis effectively simulates a census of the NASA employees perception of the workplace culture.
+This large sample provides high levels of statistical power to detect even small differences in proportions.
+This is the reason that most p-values can be reasonably expected to be significant in this sample.
+
+On the other hand when considering the measure of effect of the associations evaluated here, this large power becomes an asset since it provides a high precision in the estimation of effects, meaning all confidence intervals are narrow and we have more confidence in the estimates provided.
+Since these are the main results to report, in this analysis the high power is welcome.
+
 # Conclusions
+
+There is a positive association between leadership commitment and
+<!-- telework satisfaction -->
+employee development
+where employees that perceive high levels of commitment they
+<!-- derive 3 times as much satisfaction at the workplace in a telework environment -->
+also perceive 27 times as much opportunities for development
+when compared with employees that do not perceive high leadership commitment.
+
+<!-- These -->
+Although these
+proportions
+<!-- do not -->
+appear to vary by sex,
+<!-- males and females appear to perceive leadership commitment and have satisfaction at different levels. -->
+males had a higher perception of development opportunities when compared to females.
 
 # References
 
