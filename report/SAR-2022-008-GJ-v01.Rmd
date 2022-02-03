@@ -180,7 +180,7 @@ The effect size of this association will be reported in the next section.
 tab_inf %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 2** caption"
+    caption = "**Table 2** Cross tabulation of survey responses."
   )
 ```
 
@@ -201,7 +201,7 @@ Alternatively this translates to a 26-fold increase in the group of interest whe
 tab_inf_22 %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 3** caption"
+    caption = "**Table 3** Cross tabulation of dichotomized responses, overall and by sex of survey respondents."
   )
 ```
 
