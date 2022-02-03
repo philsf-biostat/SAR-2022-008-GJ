@@ -162,6 +162,20 @@ tab_desc %>%
 
 ### Overall association
 
+In order to compare how the responses to the leadership commitment and
+<!-- telework satisfaction -->
+employee development
+relate to each other, a cross-tabulation of all answers from each study participant is shown in Table 2.
+There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
+
+This cross tabulation shows that the largest proportion of survey respondents answered 4 (agree) or 5 (strongly agree) to both questions.
+This means that there is a detectable association between leadership commitment and
+<!-- telework satisfaction. -->
+employee development.
+Considering this is a high-powered study, this could be due to statistical power alone, meaning that while a difference in proportions is detectable this analysis does not inform how large this difference is.
+
+The effect size of this association will be reported in the next section.
+
 ```{r tab_inf}
 tab_inf %>%
   as_kable(
@@ -172,6 +186,17 @@ tab_inf %>%
 
 ### Stratification by sex
 
+In order to estimate the size of the effect of the association a binary categorization was performed between the two survey responses, where agreement aggregates all answers 4 (agree) and 5 (strongly agree).
+Table 3 shows the contingency table that cross-tabulates these variables.
+There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
+
+The effect of the association was significant (`r or_format(or_o)`).
+This means that when survey respondents perceive leadership commitment, they are 27 times as likely to report
+<!-- telework satisfaction -->
+employee development
+as participants that do not perceive such commitment from leadership.
+Alternatively this translates to a 26-fold increase in the group of interest when compared to the reference group.
+
 ```{r tab_inf_22}
 tab_inf_22 %>%
   as_kable(
@@ -180,15 +205,17 @@ tab_inf_22 %>%
   )
 ```
 
-The overall association appears to have an interaction with sex.
+In order to control for a possible interaction between the association and the sex of the study participant, the analysis was replicated for each sex.
+In both cases the chi-square test was significant (see section Observations), meaning that a possible interaction is detectable, and this possibility is confirmed by the 
+Cochran-Mantel-Haenszel test (`r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
 
-- CMH: `r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`
+The effect sizes for males and females were similar to each other (`r or_format(or_m)` and females: `r or_format(or_f)`).
+After controlling for sex, the association is still present, but its magnitude is not affected by sex.
 
-CMH test confirms an interaction is detectable.
-
-- OR overall: `r or_format(or_o)`
-- OR males: `r or_format(or_m)`
-- OR females: `r or_format(or_f)`
+This means that, when they perceive leadership commitment, both men and women appear to show similar levels of
+<!-- telework satisfaction -->
+employee development
+when compared to the reference group.
 
 Interpretation:
 
