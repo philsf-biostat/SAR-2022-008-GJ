@@ -81,6 +81,7 @@ at NASA from the 2020 Federal Employee Viewpoint Survey.
 Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
 These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
 The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
+There were a total of `r N_raw` observations in the raw data, before cleaning procedures.
 
 The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
 Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).

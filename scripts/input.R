@@ -10,6 +10,9 @@ data.raw <- read_csv("dataset/FEVS_2020_PRDF_NASA.csv") %>%
 
 # data cleaning -----------------------------------------------------------
 
+# observations before cleaning procedures
+N_raw <- nrow(data.raw)
+
 data.raw <- data.raw %>%
   # select() %>%
   rename(id = random_id) %>%
