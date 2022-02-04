@@ -21,11 +21,11 @@ Statistical Analysis for techsavvy32 (fiverr.com, 2022)
 
 ### Statistical Analysis Report (SAR)
 
-<!-- - [Online visualization][reportviz-v02] -->
-<!-- - [PDF][pdf-v02] -->
+- [Online visualization][reportviz-v02]
+- [PDF][pdf-v02]
 
-- [Online visualization][reportviz-v01]
-- [PDF][pdf-v01]
+<!-- - [Online visualization][reportviz-v01] -->
+<!-- - [PDF][pdf-v01] -->
 
 ## Portfolio
 
