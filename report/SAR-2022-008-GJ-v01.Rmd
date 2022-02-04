@@ -228,7 +228,9 @@ Since there is effect modification, it is recommended that when reporting these 
 
 The additional analysis in the next section might shed light on this issue.
 
-#### Additional analyses
+## Additional analyses
+
+### Association between sex and each study question
 
 In order to assess the possibility that sex is a confounder, the association between sex and the dichotomized responses for both leadership commitment and
 <!-- telework satisfaction -->
@@ -242,6 +244,39 @@ do not vary by sex (`r dv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`)
 
 Sex is not associated with either leadership commitment or employee satisfaction.
 This means that sex is not confounding the overall association of this analysis.
+
+### Unweighted stratified analysis
+
+In order to estimate the size of the effect of the association a binary categorization was performed between the two survey responses, where agreement aggregates all answers 4 (agree) and 5 (strongly agree).
+Table 3 shows the contingency table that cross-tabulates these variables.
+There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
+
+The effect of the association was significant (`r or_format(or_o)`).
+This means that when survey respondents perceive leadership commitment, they are 3 times as likely to report
+<!-- telework satisfaction -->
+employee development
+as participants that do not perceive such commitment from leadership.
+Alternatively this translates to a 2-fold increase in the group of interest when compared to the reference group.
+
+```{r tab_inf_22_un}
+tab_inf_22_un %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table 3** Cross tabulation of dichotomized responses, overall and by sex of survey respondents, disregarding the survey weights."
+  )
+```
+
+In order to control for a possible interaction between the association and the sex of the study participant, the analysis was replicated for each sex.
+In both cases the chi-square test was significant (see section Observations), meaning that a possible interaction is detectable, and this possibility is confirmed by the 
+Cochran-Mantel-Haenszel test (`r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
+
+The effect sizes for males and females were similar to each other (`r or_format(or_m)` and females: `r or_format(or_f)`).
+After controlling for sex, the association is still present, but its magnitude is not affected by sex.
+
+This means that, when they perceive leadership commitment, both men and women appear to show similar levels of
+<!-- telework satisfaction -->
+employee development
+when compared to the reference group.
 
 # Observations and Limitations
 
