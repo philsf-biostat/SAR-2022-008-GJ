@@ -51,8 +51,8 @@ analytical <- data.raw %>%
   mutate(
     dv = q1,  # DV
     iv = q21, # IV
-    dv2 = fct_collapse(dv, No_Agree=as.character(1:3), Agree=as.character(4:5)),
-    iv2 = fct_collapse(iv, No_Agree=as.character(1:3), Agree=as.character(4:5)),
+    dv2 = fct_collapse(dv, Disagreement=as.character(1:3), Agreement=as.character(4:5)),
+    iv2 = fct_collapse(iv, Disagreement=as.character(1:3), Agreement=as.character(4:5)),
   ) %>%
   select(
     id,
