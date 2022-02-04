@@ -48,3 +48,35 @@ or_m <- or_m$measure[2, ]
 or_f <- svytable(~ iv2 + dv2, svy_f) %>% oddsratio() %>% suppressWarnings()
 or_f <- or_f$measure[2, ]
 cmh_or <- cmh[c("estimate", "conf.low", "conf.high")]
+
+# unweighted analysis -----------------------------------------------------
+
+or_un_o <- analytical %>%
+  filter() %>%
+  select(iv2, dv2) %>%
+  table() %>%
+  oddsratio()
+or_un_o <- or_un_o$measure[2, ]
+
+or_un_m <- analytical %>%
+  filter(dsex == "Male") %>%
+  select(iv2, dv2) %>%
+  table() %>%
+  oddsratio()
+or_un_m <- or_un_m$measure[2, ]
+
+or_un_f <- analytical %>%
+  filter(dsex == "Female") %>%
+  select(iv2, dv2) %>%
+  table() %>%
+  oddsratio()
+or_un_f <- or_un_f$measure[2, ]
+
+cmh_un <- analytical %>%
+  select(iv2, dv2, dsex) %>%
+  table() %>%
+  mantelhaen.test() %>%
+  suppressWarnings() %>%
+  tidy()
+cmh_un_p <- cmh_un %>% pull(p.value)
+cmh_un_or <- cmh_un[c("estimate", "conf.low", "conf.high")]
