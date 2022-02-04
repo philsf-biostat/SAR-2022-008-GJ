@@ -51,26 +51,26 @@ or_cmh <- cmh[c("estimate", "conf.low", "conf.high")] %>% as.numeric()
 
 # unweighted analysis -----------------------------------------------------
 
-or_un_o <- analytical %>%
+or_o_un <- analytical %>%
   filter() %>%
   select(iv2, dv2) %>%
   table() %>%
   oddsratio()
-or_un_o <- or_un_o$measure[2, ] %>% as.numeric()
+or_o_un <- or_o_un$measure[2, ] %>% as.numeric()
 
-or_un_m <- analytical %>%
+or_m_un <- analytical %>%
   filter(dsex == "Male") %>%
   select(iv2, dv2) %>%
   table() %>%
   oddsratio()
-or_un_m <- or_un_m$measure[2, ] %>% as.numeric()
+or_m_un <- or_m_un$measure[2, ] %>% as.numeric()
 
-or_un_f <- analytical %>%
+or_f_un <- analytical %>%
   filter(dsex == "Female") %>%
   select(iv2, dv2) %>%
   table() %>%
   oddsratio()
-or_un_f <- or_un_f$measure[2, ] %>% as.numeric()
+or_f_un <- or_f_un$measure[2, ] %>% as.numeric()
 
 cmh_un <- analytical %>%
   select(iv2, dv2, dsex) %>%
@@ -78,5 +78,5 @@ cmh_un <- analytical %>%
   mantelhaen.test() %>%
   suppressWarnings() %>%
   tidy()
-cmh_un_p <- cmh_un %>% pull(p.value)
+cmh_p_un <- cmh_un %>% pull(p.value)
 or_cmh_un <- cmh_un[c("estimate", "conf.low", "conf.high")] %>% as.numeric()
