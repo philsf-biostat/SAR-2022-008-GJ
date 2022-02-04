@@ -49,6 +49,11 @@ or_f <- svytable(~ iv2 + dv2, svy_f) %>% oddsratio() %>% suppressWarnings()
 or_f <- or_f$measure[2, ] %>% as.numeric()
 or_cmh <- cmh[c("estimate", "conf.low", "conf.high")] %>% as.numeric()
 
+# difference between crude and adjusted
+or_diff_o_adj <- all.equal(or_cmh[1], or_o[1]) %>% parse_number()
+# difference between men and women
+or_diff_sex_adj <- all.equal(or_f[1], or_m[1]) %>% parse_number()
+
 # unweighted analysis -----------------------------------------------------
 
 or_o_un <- analytical %>%
@@ -80,3 +85,8 @@ cmh_un <- analytical %>%
   tidy()
 cmh_p_un <- cmh_un %>% pull(p.value)
 or_cmh_un <- cmh_un[c("estimate", "conf.low", "conf.high")] %>% as.numeric()
+
+# difference between crude and adjusted
+or_diff_o_adj_un <- all.equal(or_cmh_un[1], or_o_un[1]) %>% parse_number()
+# difference between men and women
+or_diff_sex_adj_un <- all.equal(or_f_un[1], or_m_un[1]) %>% parse_number()
