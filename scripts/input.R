@@ -29,7 +29,9 @@ data.raw <- data.raw %>%
     q58 = factor(q58), # DV/RQ1
     q21 = factor(q21), # IV/RQ2
     q1 = factor(q1),   # DV/RQ2
-  )
+  ) %>%
+  # only use complete cases
+  drop_na()
 
 # labels ------------------------------------------------------------------
 
@@ -60,9 +62,7 @@ analytical <- data.raw %>%
     dv2,
     iv2,
     postwt,
-  ) %>%
-  # only use complete cases
-  drop_na()
+  )
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
