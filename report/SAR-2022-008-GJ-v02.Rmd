@@ -232,71 +232,6 @@ when compared to the reference group.
 In this context it is appropriate to simply report the unadjusted estimate of effect as the result of the analysis
 (`r format_or(or_o)`).
 
-## Additional analyses
-
-### Association between sex and each study question
-
-In order to assess the possibility that sex is a confounder, the association between sex and the dichotomized responses for both leadership commitment and
-<!-- telework satisfaction -->
-employee development
-were evaluated.
-The proportion of participants that perceive high levels of leadership commitment does not vary by sex (`r iv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
-Additionally, the proportion of participants that perceive
-<!-- telework satisfaction -->
-employee development
-do not vary by sex (`r dv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
-
-Sex is not associated with either leadership commitment or employee satisfaction.
-This means that sex is not confounding the overall association of this analysis.
-
-### Unweighted stratified analysis
-
-In this section the analysis in section 4.2.2 is replicated with the raw data sampled from the survey, ignoring the design-adjusted survey weights.
-
-In order to estimate the size of the effect of the association a binary categorization was performed between the two survey responses, where agreement aggregates all answers 4 (agree) and 5 (strongly agree).
-Table 4 shows the contingency table that cross-tabulates these variables.
-There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
-
-The overall (unadjusted) effect of the association was significant (`r format_or(or_o_un)`).
-This means that when survey respondents perceive leadership commitment, they are `r round(or_o_un[1])` times as likely to report
-<!-- telework satisfaction -->
-employee development
-as participants that do not perceive such commitment from leadership.
-Alternatively this translates to a `r round(or_o_un[1])-1`-fold increase in the group of interest when compared to the reference group.
-
-```{r tab_inf_22_un}
-tab_inf_22_un %>%
-  as_kable(
-    align = "lccc",
-    caption = "**Table 4** Cross tabulation of dichotomized responses, overall and by sex of survey respondents, disregarding the survey weights."
-  )
-```
-
-In order to control for a possible confounder between the association and the sex of the study participant, the analysis was stratified by sex.
-The Mantel-Haenszel adjustment for the OR was similar to the overall unadjusted effect estimate
-(adjusted `r format_or(or_cmh_un)`).
-For comparison, the relative difference between the overall effect of association and the adjusted effect is on the order of
-`r format.pct(or_diff_o_adj_un)`,
-so we may rule out confounding between sex the the association in this study.
-There is no need to report the adjusted OR in this context.
-
-In order to assess whether or not there is an interaction between sex and the association under study we can compare the difference between the effects observed in each sex strata.
-The effect sizes for males
-(`r format_or(or_m_un)`)
-were similar to the effect of females
-(`r format_or(or_f_un)`).
-For comparison, the relative difference between the effect of association on males and females is on the order of
-`r format.pct(or_diff_sex_adj_un)`,
-so we may rule out interaction between sex and the association in this study.
-There is no need report stratum-specific effects of association in this context.
-
-In summary, since there is no evidence of either confounding or interaction with sex this means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
-<!-- telework satisfaction -->
-employee development
-when compared to the reference group.
-In this context it is appropriate to simply report the unadjusted estimate of effect as the result of the analysis
-(`r format_or(or_o_un)`).
-
 # Observations and Limitations
 
 After accounting for the complex design of the survey that acquired the raw data used in this report, the analysis effectively simulates a census of the NASA employees perception of the workplace culture.
@@ -338,6 +273,73 @@ males had a higher perception of development opportunities when compared to fema
 # ![Age](../figures/distr_age.png)
 # knitr::include_graphics("../figures/distr_age.png", error = FALSE)
 ```
+
+N/A
+
+## Additional analyses
+
+### Association between sex and each study question
+
+In order to assess the possibility that sex is a confounder, the association between sex and the dichotomized responses for both leadership commitment and
+<!-- telework satisfaction -->
+employee development
+were evaluated.
+The proportion of participants that perceive high levels of leadership commitment does not vary by sex (`r iv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
+Additionally, the proportion of participants that perceive
+<!-- telework satisfaction -->
+employee development
+do not vary by sex (`r dv_chi_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
+
+Sex is not associated with either leadership commitment or employee satisfaction.
+This means that sex is not confounding the overall association of this analysis.
+
+### Unweighted stratified analysis
+
+In this section the analysis in section 4.2.2 is replicated with the raw data sampled from the survey, ignoring the design-adjusted survey weights.
+
+In order to estimate the size of the effect of the association a binary categorization was performed between the two survey responses, where agreement aggregates all answers 4 (agree) and 5 (strongly agree).
+Table A1 shows the contingency table that cross-tabulates these variables.
+There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
+
+The overall (unadjusted) effect of the association was significant (`r format_or(or_o_un)`).
+This means that when survey respondents perceive leadership commitment, they are `r round(or_o_un[1])` times as likely to report
+<!-- telework satisfaction -->
+employee development
+as participants that do not perceive such commitment from leadership.
+Alternatively this translates to a `r round(or_o_un[1])-1`-fold increase in the group of interest when compared to the reference group.
+
+```{r tab_inf_22_un}
+tab_inf_22_un %>%
+  as_kable(
+    align = "lccc",
+    caption = "**Table A1** Cross tabulation of dichotomized responses, overall and by sex of survey respondents, disregarding the survey weights."
+  )
+```
+
+In order to control for a possible confounder between the association and the sex of the study participant, the analysis was stratified by sex.
+The Mantel-Haenszel adjustment for the OR was similar to the overall unadjusted effect estimate
+(adjusted `r format_or(or_cmh_un)`).
+For comparison, the relative difference between the overall effect of association and the adjusted effect is on the order of
+`r format.pct(or_diff_o_adj_un)`,
+so we may rule out confounding between sex the the association in this study.
+There is no need to report the adjusted OR in this context.
+
+In order to assess whether or not there is an interaction between sex and the association under study we can compare the difference between the effects observed in each sex strata.
+The effect sizes for males
+(`r format_or(or_m_un)`)
+were similar to the effect of females
+(`r format_or(or_f_un)`).
+For comparison, the relative difference between the effect of association on males and females is on the order of
+`r format.pct(or_diff_sex_adj_un)`,
+so we may rule out interaction between sex and the association in this study.
+There is no need report stratum-specific effects of association in this context.
+
+In summary, since there is no evidence of either confounding or interaction with sex this means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
+<!-- telework satisfaction -->
+employee development
+when compared to the reference group.
+In this context it is appropriate to simply report the unadjusted estimate of effect as the result of the analysis
+(`r format_or(or_o_un)`).
 
 ## Availability
 
