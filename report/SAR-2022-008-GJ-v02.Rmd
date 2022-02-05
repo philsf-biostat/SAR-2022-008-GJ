@@ -44,7 +44,7 @@ panderOptions('table.split.table', 160)
 
 ```{r history}
 Version <- c("01", "02")
-Changes <- c("Initial version", "Unweighted analysis included as an alternative result")
+Changes <- c("Initial version", "Unweighted analysis included as an alternative result; common dataset between this and the associated analysis")
 history <- cbind(Version, Changes)
 colnames(history) <- c("Version", "Alterations")
 # pander(history, split.cells = 70)
@@ -334,6 +334,15 @@ Both this document and the corresponding analytical plan (**SAP-2022-008-GJ-v02*
 <!-- The portfolio is available at: -->
 
 <!-- <https://philsf-biostat.github.io/> -->
+
+## Associated analysis
+
+This analysis is part of a larger project and is supported by another analysis, linked below.
+The other analysis employs the same methods here to answer a related research question, using different data from the FEVS survey.
+
+**Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis**
+
+<https://philsf-biostat.github.io/SAR-2022-007-GJ/>
 
 ## Analytical dataset
 

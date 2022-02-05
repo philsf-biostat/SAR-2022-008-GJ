@@ -30,7 +30,7 @@ Statistical Analysis for techsavvy32 (fiverr.com, 2022)
 ## Associated analysis
 
 This analysis is part of a larger project and is supported by another analysis, linked below.
-The support analysis describes the methods used to impute missing data as a requisite to perform the analysis presented here.
+The other analysis employs the same methods here to answer a related research question, using different data from the FEVS survey.
 
 **Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis**
 
