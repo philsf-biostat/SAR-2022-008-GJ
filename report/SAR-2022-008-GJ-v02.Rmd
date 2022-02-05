@@ -192,12 +192,12 @@ In order to estimate the size of the effect of the association a binary categori
 Table 3 shows the contingency table that cross-tabulates these variables.
 There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
 
-The effect of the association was significant (`r format_or(or_o)`).
-This means that when survey respondents perceive leadership commitment, they are 27 times as likely to report
+The overall (unadjusted) effect of the association was significant (`r format_or(or_o)`).
+This means that when survey respondents perceive leadership commitment, they are `r round(or_o[1])` times as likely to report
 <!-- telework satisfaction -->
 employee development
 as participants that do not perceive such commitment from leadership.
-Alternatively this translates to a 26-fold increase in the group of interest when compared to the reference group.
+Alternatively this translates to a `r round(or_o[1])-1`-fold increase in the group of interest when compared to the reference group.
 
 ```{r tab_inf_22}
 tab_inf_22 %>%
@@ -207,27 +207,30 @@ tab_inf_22 %>%
   )
 ```
 
-In order to control for a possible interaction between the association and the sex of the study participant, the analysis was replicated for each sex.
-In both cases the chi-square test was significant (see section Observations), meaning that a possible interaction is detectable, and this possibility is confirmed by the 
-Cochran-Mantel-Haenszel test (`r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
+In order to control for a possible confounder between the association and the sex of the study participant, the analysis was stratified by sex.
+The Mantel-Haenszel adjustment for the OR was similar to the overall unadjusted effect estimate
+(adjusted `r format_or(or_cmh)`).
+For comparison, the relative difference between the overall effect of association and the adjusted effect is on the order of
+`r format.pct(or_diff_o_adj)`,
+so we may rule out confounding between sex the the association in this study.
+There is no need to report the adjusted OR in this context.
 
-The effect sizes for males and females were similar to each other (`r format_or(or_m)` and females: `r format_or(or_f)`).
-These effect sizes do not fall in the rule of thumb of accepting a difference in the OR of up to 0.2 as similar so after controlling for sex, the association is affected by sex.
+In order to assess whether or not there is an interaction between sex and the association under study we can compare the difference between the effects observed in each sex strata.
+The effect sizes for males
+(`r format_or(or_m)`)
+were similar to the effect of females
+(`r format_or(or_f)`).
+For comparison, the relative difference between the effect of association on males and females is on the order of
+`r format.pct(or_diff_sex_adj)`,
+so we may rule out interaction between sex and the association in this study.
+There is no need report stratum-specific effects of association in this context.
 
-This means that, when they perceive leadership commitment, men appear to show higher levels of
+In summary, since there is no evidence of either confounding or interaction with sex this means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
 <!-- telework satisfaction -->
 employee development
-than women,
 when compared to the reference group.
-
-Although the difference in the overall OR and the sex-stratified ORs is larger than 1, it can be noted that the relative difference between these ORs
-\footnote{Relative differences can be evaluated as Relative difference = $\frac{OR_{sex} - OR_{overall}}{OR_{overall}}$}
-is very small (relative difference for males: `r format.pct((or_m[1]-or_o[1])/or_o[1])`, relative difference for females `r format.pct((or_f[1]-or_o[1])/or_o[1])`).
-Although this interaction cannot be discarded, it may not be a true interaction.
-One possible explanation for this is the very large magnitude of the effect size (OR circa 27, both overall and in all strata), so the actual difference is larger than the pre-specified (absolute) threshold, but when considering the scale of the measures, the difference may not be perceived as large.
-Since there is effect modification, it is recommended that when reporting these results, both stratified OR also be reported, instead of the overall OR alone.
-
-The additional analysis in the next section might shed light on this issue.
+In this context it is appropriate to simply report the unadjusted estimate of effect as the result of the analysis
+(`r format_or(or_o)`).
 
 ## Additional analyses
 
