@@ -1,6 +1,6 @@
 ---
 title: "Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis"
-subtitle: 'DOCUMENT: SAR-2022-008-GJ-v01'
+subtitle: 'DOCUMENT: SAR-2022-008-GJ-v02'
 author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
 date: "`r Sys.Date()`"
 output:
@@ -18,7 +18,8 @@ output:
     fig_caption: yes
     fig_height: 6
     fig_width: 6
-    reference_docx: misc/style_SAR_en.docx
+    keep_md: yes
+    reference_docx: misc/style_SAR_en_2.docx
     toc: yes
 # toc-title: "Sumário"
 ---
@@ -42,8 +43,8 @@ panderOptions('table.split.table', 160)
 **Document version**
 
 ```{r history}
-Version <- c("01")
-Changes <- c("Initial version")
+Version <- c("01", "02")
+Changes <- c("Initial version", "Unweighted analysis included as an alternative result")
 history <- cbind(Version, Changes)
 colnames(history) <- c("Version", "Alterations")
 # pander(history, split.cells = 70)
