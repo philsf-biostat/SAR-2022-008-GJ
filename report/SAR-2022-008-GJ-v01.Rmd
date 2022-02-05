@@ -191,7 +191,7 @@ In order to estimate the size of the effect of the association a binary categori
 Table 3 shows the contingency table that cross-tabulates these variables.
 There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
 
-The effect of the association was significant (`r or_format(or_o)`).
+The effect of the association was significant (`r format_or(or_o)`).
 This means that when survey respondents perceive leadership commitment, they are 27 times as likely to report
 <!-- telework satisfaction -->
 employee development
@@ -210,7 +210,7 @@ In order to control for a possible interaction between the association and the s
 In both cases the chi-square test was significant (see section Observations), meaning that a possible interaction is detectable, and this possibility is confirmed by the 
 Cochran-Mantel-Haenszel test (`r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
 
-The effect sizes for males and females were similar to each other (`r or_format(or_m)` and females: `r or_format(or_f)`).
+The effect sizes for males and females were similar to each other (`r format_or(or_m)` and females: `r format_or(or_f)`).
 These effect sizes do not fall in the rule of thumb of accepting a difference in the OR of up to 0.2 as similar so after controlling for sex, the association is affected by sex.
 
 This means that, when they perceive leadership commitment, men appear to show higher levels of
@@ -251,7 +251,7 @@ In order to estimate the size of the effect of the association a binary categori
 Table 3 shows the contingency table that cross-tabulates these variables.
 There is a detectable statistical difference in the distributions of the two responses (see section Observations), where the chi-square adjusted for survey design was significant.
 
-The effect of the association was significant (`r or_format(or_o)`).
+The effect of the association was significant (`r format_or(or_o)`).
 This means that when survey respondents perceive leadership commitment, they are 3 times as likely to report
 <!-- telework satisfaction -->
 employee development
@@ -270,7 +270,7 @@ In order to control for a possible interaction between the association and the s
 In both cases the chi-square test was significant (see section Observations), meaning that a possible interaction is detectable, and this possibility is confirmed by the 
 Cochran-Mantel-Haenszel test (`r cmh_p %>% style_pvalue(prepend_p = TRUE, digits = 3)`).
 
-The effect sizes for males and females were similar to each other (`r or_format(or_m)` and females: `r or_format(or_f)`).
+The effect sizes for males and females were similar to each other (`r format_or(or_m)` and females: `r format_or(or_f)`).
 After controlling for sex, the association is still present, but its magnitude is not affected by sex.
 
 This means that, when they perceive leadership commitment, both men and women appear to show similar levels of
