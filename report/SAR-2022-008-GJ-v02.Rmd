@@ -225,7 +225,8 @@ For comparison, the relative difference between the effect of association on mal
 so we may rule out interaction between sex and the association in this study.
 There is no need report stratum-specific effects of association in this context.
 
-In summary, since there is no evidence of either confounding or interaction with sex this means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
+In summary, since there is no evidence of either confounding or interaction with sex
+This means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
 <!-- telework satisfaction -->
 employee development
 when compared to the reference group.
@@ -347,7 +348,8 @@ For comparison, the relative difference between the effect of association on mal
 so we may rule out interaction between sex and the association in this study.
 There is no need report stratum-specific effects of association in this context.
 
-In summary, since there is no evidence of either confounding or interaction with sex this means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
+In summary, since there is no evidence of either confounding or interaction with sex
+This means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
 <!-- telework satisfaction -->
 employee development
 when compared to the reference group.
