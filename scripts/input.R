@@ -10,6 +10,9 @@ data.raw <- read_csv("dataset/FEVS_2020_PRDF_NASA.csv") %>%
 
 # data cleaning -----------------------------------------------------------
 
+# observations before cleaning procedures
+N_raw <- nrow(data.raw)
+
 data.raw <- data.raw %>%
   # select() %>%
   rename(id = random_id) %>%
@@ -26,7 +29,9 @@ data.raw <- data.raw %>%
     q58 = factor(q58), # DV/RQ1
     q21 = factor(q21), # IV/RQ2
     q1 = factor(q1),   # DV/RQ2
-  )
+  ) %>%
+  # only use complete cases
+  drop_na()
 
 # labels ------------------------------------------------------------------
 
@@ -46,8 +51,8 @@ analytical <- data.raw %>%
   mutate(
     dv = q1,  # DV
     iv = q21, # IV
-    dv2 = fct_collapse(dv, No_Agree=as.character(1:3), Agree=as.character(4:5)),
-    iv2 = fct_collapse(iv, No_Agree=as.character(1:3), Agree=as.character(4:5)),
+    dv2 = fct_collapse(dv, Disagreement=as.character(1:3), Agreement=as.character(4:5)),
+    iv2 = fct_collapse(iv, Disagreement=as.character(1:3), Agreement=as.character(4:5)),
   ) %>%
   select(
     id,
@@ -57,9 +62,7 @@ analytical <- data.raw %>%
     dv2,
     iv2,
     postwt,
-  ) %>%
-  # only use complete cases
-  drop_na()
+  )
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
