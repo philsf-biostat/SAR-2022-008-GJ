@@ -21,11 +21,20 @@ Statistical Analysis for techsavvy32 (fiverr.com, 2022)
 
 ### Statistical Analysis Report (SAR)
 
-<!-- - [Online visualization][reportviz-v02] -->
-<!-- - [PDF][pdf-v02] -->
+- [Online visualization][reportviz-v02]
+- [PDF][pdf-v02]
 
-- [Online visualization][reportviz-v01]
-- [PDF][pdf-v01]
+<!-- - [Online visualization][reportviz-v01] -->
+<!-- - [PDF][pdf-v01] -->
+
+## Associated analysis
+
+This analysis is part of a larger project and is supported by another analysis, linked below.
+The support analysis describes the methods used to impute missing data as a requisite to perform the analysis presented here.
+
+**Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis**
+
+<https://philsf-biostat.github.io/SAR-2022-007-GJ/>
 
 ## Portfolio
 
