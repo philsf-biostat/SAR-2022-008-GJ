@@ -212,7 +212,7 @@ The Mantel-Haenszel adjustment for the OR was similar to the overall unadjusted 
 (adjusted `r format_or(or_cmh)`).
 For comparison, the relative difference between the overall effect of association and the adjusted effect is on the order of
 `r format.pct(or_diff_o_adj)`,
-so we may rule out confounding between sex the the association in this study.
+so we may rule out confounding between sex the association in this study.
 There is no need to report the adjusted OR in this context.
 
 In order to assess whether or not there is an interaction between sex and the association under study we can compare the difference between the effects observed in each sex strata.
@@ -225,7 +225,7 @@ For comparison, the relative difference between the effect of association on mal
 so we may rule out interaction between sex and the association in this study.
 There is no need report stratum-specific effects of association in this context.
 
-In summary, since there is no evidence of either confounding or interaction with sex
+In summary, since there is no evidence of either confounding or interaction with sex.
 This means that, when they perceive high levels of leadership commitment, both men and women appear to show similar levels of
 <!-- telework satisfaction -->
 employee development
@@ -243,7 +243,7 @@ On the other hand when considering the measure of effect of the associations eva
 Since these are the main results to report, in this analysis the high power is welcome.
 
 Although an alternative unweighted version of the analysis is provided as an option in the Appendix (8.2.2), it is not recommended that survey weights be ignored.
-Survey designs can account for multiple sampling of certain individuals (which can occur in randomized sampling designs) and in some cases may also need to oversample minority populations in order to increase precision in the estimates obtained from these groups.
+Survey designs can account for multiple sampling of certain individuals (which can occur in randomized sampling designs) and in some cases may also need to over-sample minority populations in order to increase precision in the estimates obtained from these groups.
 Survey weights adjust for these design choices and a decision to discard these weights will not incorporate the complexity of the source survey design and will likely introduce bias in the analysis results.
 In this analysis the FEVS dataset includes multiple observations of the same individuals -- ignoring sample weights will count all duplicates as multiples, effectively giving them an extra weight and biasing the estimates.
 This bias can be hard to quantify and so it is recommended that the main analysis (4.2.2) is used as the basis for the conclusions.
@@ -335,7 +335,7 @@ The Mantel-Haenszel adjustment for the OR was similar to the overall unadjusted 
 (adjusted `r format_or(or_cmh_un)`).
 For comparison, the relative difference between the overall effect of association and the adjusted effect is on the order of
 `r format.pct(or_diff_o_adj_un)`,
-so we may rule out confounding between sex the the association in this study.
+so we may rule out confounding between sex the association in this study.
 There is no need to report the adjusted OR in this context.
 
 In order to assess whether or not there is an interaction between sex and the association under study we can compare the difference between the effects observed in each sex strata.
