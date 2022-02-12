@@ -1,6 +1,8 @@
 # Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis
 
-Test if there is an association between leadership commitment and employee professional development at NASA from the 2020 Federal Employee Viewpoint Survey.
+Quantify the association between leadership commitment and
+employee professional development
+at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 Statistical Analysis for techsavvy32 (fiverr.com, 2022)
 
