@@ -24,11 +24,6 @@ svy <- svydesign(
 # svytotal(~q21 + q1, design = svy)
 # svymean(~q21 + q1, design = svy)
 
-# source population size
-N <- data.raw %>% summarise(N_hat = sum(postwt)) %>% pull(N_hat) %>% round
-# source population size (cleaned)
-N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% pull(N_hat) %>% round
-
 # prop sex (male)
 prop_male <- svymean(~dsex, svy) %>% as.matrix()
 prop_male <- prop_male[1]

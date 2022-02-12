@@ -2,7 +2,7 @@
 title: "Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAR-2022-008-GJ-v02'
 author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
-date: "`r Sys.Date()`"
+date: "2022-02-05"
 output:
   html_document:
     fig_caption: yes
@@ -139,7 +139,7 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Study population and follow up
 
-The sample evaluated in this study is comprised of `r nrow(analytical)` observations representing `r N_hat` NASA employees, out of a total of `r N`.
+The sample evaluated in this study is comprised of `r nrow(analytical)` observations that, after the survey weights adjustment, are representative of `r N_hat` NASA employees, out of a total of `r N`.
 Two thirds of the study population are males (`r format.pct(prop_male)`, Table 1).
 
 <!-- The first survey question -->
@@ -182,7 +182,7 @@ The effect size of this association will be reported in the next section.
 tab_inf %>%
   as_kable(
     align = "lccc",
-    caption = "**Table 2** Cross tabulation of survey responses."
+    caption = "**Table 2** Cross tabulation of raw survey responses."
   )
 ```
 

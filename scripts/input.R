@@ -12,6 +12,8 @@ data.raw <- read_csv("dataset/FEVS_2020_PRDF_NASA.csv") %>%
 
 # observations before cleaning procedures
 N_raw <- nrow(data.raw)
+# source population size
+N <- data.raw %>% summarise(N_hat = sum(postwt)) %>% pull(N_hat) %>% round
 
 data.raw <- data.raw %>%
   # select() %>%
@@ -63,6 +65,9 @@ analytical <- data.raw %>%
     iv2,
     postwt,
   )
+
+# source population size (cleaned)
+N_hat <- analytical %>% summarise(N_hat = sum(postwt)) %>% pull(N_hat) %>% round
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
