@@ -1,5 +1,5 @@
 ---
-title: "Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis"
+title: "Analytical Plan for Association between leadership commitment and professional development at NASA (2020): weighted sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAP-2022-008-GJ-v01'
 author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
 date: "2022-01-30"
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis**
+**Analytical Plan for Association between leadership commitment and professional development at NASA (2020): weighted sex-adjusted stratified analysis**
 
 **Document version**
 
@@ -194,7 +194,7 @@ N/A
 
 # References
 
-- **SAR-2022-008-GJ-v01** -- Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis
+- **SAR-2022-008-GJ-v01** -- Association between leadership commitment and professional development at NASA (2020): weighted sex-adjusted stratified analysis
 - OPM (2020). 2020 Federal Employee Viewpoint Survey -- Technical report (<https://www.opm.gov/fevs/reports/technical-reports/>).
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 - Zarin DA, et al. The ClinicalTrials.gov results database — update and key issues. N Engl J Med 2011;364:852-60 (<https://doi.org/10.1056/NEJMsa1012065>).

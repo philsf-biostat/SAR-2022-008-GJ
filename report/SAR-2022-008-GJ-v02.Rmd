@@ -1,5 +1,5 @@
 ---
-title: "Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis"
+title: "Association between leadership commitment and professional development at NASA (2020): weighted sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAR-2022-008-GJ-v02'
 author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
 date: "2022-02-05"
@@ -38,7 +38,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis**
+**Association between leadership commitment and professional development at NASA (2020): weighted sex-adjusted stratified analysis**
 
 **Document version**
 
@@ -269,7 +269,7 @@ males had a higher perception of development opportunities when compared to fema
 
 # References
 
-- **SAP-2022-008-GJ-v02** -- Analytical Plan for Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis
+- **SAP-2022-008-GJ-v02** -- Analytical Plan for Association between leadership commitment and professional development at NASA (2020): weighted sex-adjusted stratified analysis
 - OPM (2020). 2020 Federal Employee Viewpoint Survey -- Technical report (<https://www.opm.gov/fevs/reports/technical-reports/>).
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 
@@ -375,7 +375,7 @@ Both this document and the corresponding analytical plan (**SAP-2022-008-GJ-v02*
 This analysis is part of a larger project and is supported by another analysis, linked below.
 The other analysis employs the same methods here to answer a related research question, using different data from the FEVS survey.
 
-**Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis**
+**Association between leadership commitment and telework satisfaction at NASA (2020): weighted sex-adjusted stratified analysis**
 
 <https://philsf-biostat.github.io/SAR-2022-007-GJ/>
 
